@@ -7,7 +7,7 @@ $note = readline('Veuillez entrer votre note : ');
 if($note > 10) { //Si la valeur de $note est supérieure à 10...
     echo 'Bravo, vous avez la moyenne'; //Alors on éxécute ce code
 } elseif($note == 10) { //Sinon si la valeur est égale à 10...
-    echo "Vous avez tout juste la moyenne";
+    echo 'Vous avez tout juste la moyenne';
 } else { //Sinon (si la condition si-dessus renvoie false)...
     echo 'Dommage, vous n\'avez pas la moyenne'; //Alors on éxécute ce code à la place
 };
@@ -21,7 +21,8 @@ if($note > 10) { //Si la valeur de $note est supérieure à 10...
   Cependant, l'opérateur de comparaison '==' compare uniquement la valeur, par exemple si je fais :
   "0" == 0, le résultat renverra true car les deux valeurs on le même chiffre, malgré le fait qu'elles aient un type différent
 
-  Pour terminer, l'opérateur de comparaison '=' renverra toujours true.
+  Pour terminer, l'opérateur de comparaison '=' renverra toujours true, si je change l'opérateur de comparaison '==' en '='
+  dans le elseif, toute donnée inférieure à 10 renverra : 'Vous avez tout juste la moyenne'.
 
   Conclusion : Dans la majorité des cas, il est conseillé d'utiliser l'opérateur de comparaison stricte (===) mais dans ce cas là,
   je vais utiliser l'opérateur d'égalité lâche (==).
