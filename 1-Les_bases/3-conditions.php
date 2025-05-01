@@ -69,11 +69,22 @@ if((9 <= $heure && $heure < 12) || (13 <= $heure && $heure < 17)) {
 
 
 //Je peux aussi inverser la condition d'une façon très simple :
-if(!((9 <= $heure && $heure < 12) || (13 <= $heure && $heure < 17))) { //J'entoure mes deux calculs d'une seule parenthèse puis j'y précède du signe !
+if(!((9 < $heure && $heure < 12) || (13 < $heure && $heure < 17))) { //J'entoure mes deux calculs d'une seule parenthèse puis j'y précède du signe !
     echo 'Le magasin est fermé' . PHP_EOL;
 } else {
     echo 'Le magasin est ouvert' . PHP_EOL;
 };
+
+
+//Deuxième test avec l'opérateur '!' (PAS)
+$num1 = 7;
+$num2 = 8;
+
+if(!(($num1 > 10) || ($num2 > 10))) {
+    echo 'L\'unes des deux variables est supérieure à 10';
+} else {
+    echo 'Les variables ne sont pas supérieures à 10';
+}
 
 /*
   L'opérateur logique && (ET) requiert que les deux valeurs comparées soient vraies pour que le résultat renvoie true, exemples :
@@ -88,8 +99,9 @@ if(!((9 <= $heure && $heure < 12) || (13 <= $heure && $heure < 17))) { //J'entou
   - FAUX || FAUX = false;  Les deux valeurs sont fausses, donc le résultat l'est aussi.
 
 
-  L'opérateur logique ! (PAS logique) inverse la valeur booléene d'un calcul, par exemple :
+  L'opérateur logique ! (PAS) inverse la valeur booléene d'un calcul, par exemple :
   - !(VRAI || FAUX) = false;  Logiquement le résultat dois renvoyer true, cependant l'opérateur '!' inverse la valeur booléene du calcul, le résultat est donc false.
+  - !(FAUX || FAUX) = true;  Ici aussi le résultat devrais renvoyer false car les deux valeurs comparées sont fausses, mais l'opérateur '!' inverse le résultat du calcul, lui faisant donc renvoyer true.
 */
 
 ?>
