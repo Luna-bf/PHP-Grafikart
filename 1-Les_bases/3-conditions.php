@@ -61,10 +61,18 @@ switch($actions) { //Ici ma condition est ma variable $actions
 $heure = (int)readline('Veuillez entrer une heure : ');
 
 //Si $heure est supérieure à 9 ET inférieure à 12 OU qu'elle est supérieure à 13 ET inférieure à 17...
-if((9 < $heure && $heure < 12) || (13 < $heure && $heure < 17)) {
+if((9 <= $heure && $heure < 12) || (13 <= $heure && $heure < 17)) {
     echo 'Le magasin est ouvert' . PHP_EOL; //Alors on éxécute ce code
 } else {
     echo 'Le magasin est fermé' . PHP_EOL;
+};
+
+
+//Je peux aussi inverser la condition d'une façon très simple :
+if(!((9 <= $heure && $heure < 12) || (13 <= $heure && $heure < 17))) { //J'entoure mes deux calculs d'une seule parenthèse puis j'y précède du signe !
+    echo 'Le magasin est fermé' . PHP_EOL;
+} else {
+    echo 'Le magasin est ouvert' . PHP_EOL;
 };
 
 /*
@@ -74,10 +82,14 @@ if((9 < $heure && $heure < 12) || (13 < $heure && $heure < 17)) {
   - FAUX && FAUX = false;  Les deux valeurs valent false, sans surprise, le résultat renvoie false.
 
 
-  De son côté, l'opérateur logique || (OU) requiert que l'une des deux valeurs comparées soit vraie pour que le résultat renvoie true :
+  L'opérateur logique || (OU) requiert que l'une des deux valeurs comparées soit vraie pour que le résultat renvoie true :
   - VRAI || VRAI = true;  Ici, les deux valeurs sont vraies, sans surprise, le résultat l'est aussi.
   - VRAI || FAUX = true;  L'une des deux valeurs est vraie, donc le résultat renvoie true.
   - FAUX || FAUX = false;  Les deux valeurs sont fausses, donc le résultat l'est aussi.
+
+
+  L'opérateur logique ! (PAS logique) inverse la valeur booléene d'un calcul, par exemple :
+  - !(VRAI || FAUX) = false;  Logiquement le résultat dois renvoyer true, cependant l'opérateur '!' inverse la valeur booléene du calcul, le résultat est donc false.
 */
 
 ?>
