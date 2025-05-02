@@ -65,4 +65,31 @@ foreach($etudiants as $diplome => $listeEtudiants) {
     echo "\n"; //Je rajoute juste un saut de ligne pour que le code soit plus lisible
 }
 
+
+/*
+- Demande à l'utilisateur de rentrer une note ou de taper "fin"
+- Chaque note est sauvegardée dans un tableau $notesEleves ($notesEleves[])
+- A la fin on affiche le tableau complet sous forme de liste
+*/
+$action = null; //J'initialise la variable à null car, par défaut, cette variable est vide
+$notesEleves = []; //Pareil pour le tableau qui est vide au début
+
+//Tant que la variable $action n'est pas égale à "fin"...
+while(($action !== 'fin')) {
+    $action = readline('Veuillez entrer une note ou tapez \'fin\' pour sortir de la saisie : '); //On demande de saisir une donnée
+
+    //Si la donnée saisie dans $action n'est pas égale à "fin"
+    if($action !== 'fin') {
+        $notesEleves[] = (int)$action; //Alors on la stocke dans la variable $notesEleves[] sous forme de chiffre
+    }
+}
+
+//Pour chaque noteEleve dans notesEleves 
+foreach($notesEleves as $noteEleve) {
+    //On affiche "- noteEleve \n"
+    echo "- $noteEleve \n";
+}
+
+
+
 ?>
