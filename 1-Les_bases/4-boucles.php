@@ -91,5 +91,59 @@ foreach($notesEleves as $noteEleve) {
 }
 
 
+/*
+- On demande à l'utilisateur de saisir les horaires d'un magasin
+- On lui demande ensuite de saisir une heure et on lui dit si le magasin est ouvert ou non
+*/
+$creneaux = [];
+
+//while(true) est une boucle infinie, elle ne s'arrête que lorsque le code éxécuté dans cette dernière vaut true
+while(true) {
+    $horairesOuverture = (int)readline('Veuillez saisir les horaires d\'ouverture du magasin : ');
+    $horairesFermeture = (int)readline('Veuillez saisir les horaires de fermeture du magasin : ');
+
+    //Si l'heure de fermeture est inférieure ou égale à l'horaire d'ouverture...
+    if($horairesOuverture >= $horairesFermeture) {
+        echo "Veuillez saisir une heure de fermeture supérieure à celle de l'ouverture ($horairesOuverture)";
+    } else {
+        $creneaux[] = [$horairesOuverture, $horairesFermeture]; //On créé un nouvel élément de type tableau qui va contenir les deux variables horaires et on l'enregistre dans la variable $creneaux[]
+        $action = readline('Voulez vous saisir un nouveau créneau ? (o/n)'); //On peux aussi proposer la saisie d'un autre créneau
+
+        //Il est tout à fait possible d'imbriquer des conditions if-else dans d'autres conditions if-else
+        if($action === 'n') { //Si la variable $action renvoie 'n'...
+            break; //Alors on sort de la boucle
+        }
+    }
+}
+
+echo 'Le magasin est ouvert de';
+foreach($creneaux as $k => $creneau) { //$k signifie "key"
+    if($k > 0) { //Si on a au moins deux éléments dans $creneau...
+        echo ' et de'; //On ajoute ' et de'
+    }
+    //A chaque fois que j'entre 2 créneaux, un nouveau tableau contenant les deux valeurs est créé dans la variable $creneaux (voir avec print_r en bas)
+    echo " {$creneau[0]}h à {$creneau[1]}h"; //Les accolades {} permettent de séparer la variable $creneau de la lettre h et donc de les interpoller correctement
+}
+
+/*$heureSaisie = (int)readline('Veuillez saisir une heure : ');
+$creneauxTrouve = false;
+
+foreach($creneaux as $key => $creneau) {
+
+    //Si l'heure saisie est supérieure ou égale au premier ET au deuxième élément de $creneau...
+    if(($heureSaisie >= $creneau[0]) && ($heureSaisie <= $creneau[1])) {
+        $creneauxTrouve = true; //Alors on change la valeur de $creneauxTrouvé à true
+        break; //Et on sort de la boucle
+    }
+}
+
+//Pas besoin de mettre $creneauxTrouvé === true, car il vaut déjà true ici
+if($creneauxTrouve) {
+    echo `Le magasin est ouvert \n`;
+} else {
+    echo "Nous sommes fermé, le magasin est ouvert de $creneau[0]h à $creneau[1]h et de $creneau[3]h à $creneau[4]h \n";
+}*/
+
+//print_r($creneaux); //Pour afficher l'état de ma variable $creneaux
 
 ?>
